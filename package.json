@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "webpack --progress --hide-modules",
     "dev": "webpack-dev-server --host 0.0.0.0 --port 8888 --open --history-api-fallback --config webpack.config.js"
   },
