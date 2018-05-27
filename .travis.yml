@@ -1,3 +1,11 @@
-language: php
+language: node_js
+node_js:
+  - node
 dist: trusty
-os: linux
+sudo: false
+cache:
+  directories:
+    - node_modules
+script:
+  - npm run test:cov
+  - npm run test:sauce
