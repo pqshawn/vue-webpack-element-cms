@@ -1,4 +1,4 @@
 # LdosCms
 
-Established Ai-based content management systems
+Established Vue-based content management systems
 
