@@ -197,7 +197,7 @@ export const asyncRoutes = [
         meta: {
             title: '站点管理',
             icon: 'el-icon-lock',
-            roles: ['admin', 'editor']
+            roles: ['editor']
         },
         children: [
             {
@@ -213,7 +213,7 @@ export const asyncRoutes = [
                 name: 'SitesAdd',
                 meta: {
                     title: '添加站点',
-                    roles: ['admin', 'editor']
+                    roles: ['editor']
                 }, 
                 component: (resolve) => require(['@/views/sites/add'], resolve)
             },

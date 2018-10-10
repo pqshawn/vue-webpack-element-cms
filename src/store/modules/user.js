@@ -2,9 +2,10 @@
  * store user's info
  */
 import { getInfo } from '@/api/user'
+import { removeToken } from '@/utils/auth'
 
 const state = {
-    token: '',
+    token: 'xxxx',
     name: '',
     avatar: '',
     roles: []
@@ -46,7 +47,16 @@ const actions = {
                 reject(error)
             })
         })
-    }
+    },
+    // remove token
+    resetToken({ commit }) {
+        return new Promise(resolve => {
+        commit('SET_TOKEN', '')
+        commit('SET_ROLES', [])
+        removeToken()
+        resolve()
+    })
+  },
 }
 
 export default {

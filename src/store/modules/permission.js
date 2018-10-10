@@ -1,7 +1,8 @@
 import { asyncRoutes, constantRoutes } from '@/router'
 
 /**
- * Use meta.role to determine if the current user has permission
+ * 使用角色判断是否有权限
+ * 
  * @param roles
  * @param route
  */
@@ -14,7 +15,8 @@ function hasPermission(roles, route) {
 }
 
 /**
- * Filter asynchronous routing tables by recursion
+ * 循环过滤
+ * 
  * @param routes asyncRoutes
  * @param roles
  */
@@ -49,7 +51,6 @@ const actions = {
         return new Promise(resolve => {
             let accessedRoutes
             if (roles.includes('admin')) {
-                console.log(asyncRoutes)
                 accessedRoutes = asyncRoutes || []
             } else {
                 accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
