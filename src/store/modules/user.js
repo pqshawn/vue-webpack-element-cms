@@ -1,6 +1,8 @@
 /**
  * store user's info
  */
+import { getInfo } from '@/api/user'
+
 const state = {
     token: '',
     name: '',
@@ -27,17 +29,22 @@ const actions = {
     // get user's info
     getInfo({ commit, state }) {
         return new Promise((resolve, reject) => {
-            // TODO get info from datasource
-            const data = { roles: ['editor'], name: '可可西里', avatar: '' }
+            getInfo(state.token).then(response => {
+                const { data } = response
+                if (!data) {
+                  reject('Invalid Auth.')
+                }
+                // const data = { roles: ['editor'], name: '可可西里', avatar: '' }
 
-            const { roles, name, avatar } = data
+                const { roles, name, avatar } = data
 
-            commit('SET_ROLES', roles)
-            commit('SET_NAME', name)
-            commit('SET_AVATAR', avatar)
-            resolve(data)
-        }).catch(error => {
-            reject(error)
+                commit('SET_ROLES', roles)
+                commit('SET_NAME', name)
+                commit('SET_AVATAR', avatar)
+                resolve(data)
+            }).catch(error => {
+                reject(error)
+            })
         })
     }
 }
